@@ -3,6 +3,7 @@
 // import viteLogo from './assets/vite.svg'
 // import heroImg from './assets/hero.png'
 import "./App.css";
+import Board from "./components/Board";
 
 const members = [
   {
@@ -36,32 +37,7 @@ function App() {
         <p>Alpha Company • Live Status Board</p>
       </header>
 
-      <section className="board">
-        <div className="board-header">Members</div>
-        <div className="board-header in-header">In</div>
-        <div className="board-header out-header">Out</div>
-
-        {members.map((member) => (
-          <div className="board-row" key={member.id}>
-            <div className="member-cell">
-              <strong>{member.name}</strong>
-              <span>{member.rank}</span>
-            </div>
-
-            <div className="status-cell">
-              {member.status === "in" && (
-                <div className="status-card in-card">{member.details}</div>
-              )}
-            </div>
-
-            <div className="status-cell">
-              {member.status === "out" && (
-                <div className="status-card out-card">{member.details}</div>
-              )}
-            </div>
-          </div>
-        ))}
-      </section>
+      <Board members={members} />
     </main>
   );
 }
