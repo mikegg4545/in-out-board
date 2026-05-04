@@ -1,6 +1,6 @@
-function MemberRow({ member }) {
+function MemberRow({ member, onToggleStatus }) {
   return (
-    <div className="board-row">
+    <div className="board-row" onClick={() => onToggleStatus(member.id)}>
       <div className="member-cell">
         <strong>{member.name}</strong>
         <span>{member.rank}</span>

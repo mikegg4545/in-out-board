@@ -1,6 +1,6 @@
 import MemberRow from "./MemberRow";
 
-function Board({ members }) {
+function Board({ members, onToggleStatus }) {
   return (
     <section className="board">
       <div className="board-header">Members</div>
@@ -8,7 +8,11 @@ function Board({ members }) {
       <div className="board-header out-header">Out</div>
 
       {members.map((member) => (
-        <MemberRow key={member.id} member={member} />
+        <MemberRow
+          key={member.id}
+          member={member}
+          onToggleStatus={onToggleStatus}
+        />
       ))}
     </section>
   );
