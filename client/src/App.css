@@ -41,17 +41,28 @@ body {
   display: contents;
 }
 
-.member-cell {
-  padding: 16px;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  flex-direction: column;
-  gap: 4px; /* 👈 THIS is the spacing fix */
+.board-row:hover .member-cell,
+.board-row:hover .status-cell {
+  background: #f3f4f6;
 }
 
+.member-cell,
 .status-cell {
   padding: 16px;
   border-bottom: 1px solid #eee;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.member-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.member-cell span {
+  color: #6b7280;
+  font-size: 14px;
 }
 
 .status-card {

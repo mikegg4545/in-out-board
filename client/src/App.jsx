@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import socket from "./services/socket";
 import "./App.css";
 import Board from "./components/Board";
 
@@ -26,6 +27,16 @@ function App() {
       details: "Office",
     },
   ]);
+
+  useEffect(() => {
+    socket.on("board:updated", (data) => {
+      setMembers(data.members);
+    });
+
+    return () => {
+      socket.off("board:updated");
+    };
+  }, []);
 
   function toggleStatus(memberId) {
     const updatedMembers = members.map((member) => {
